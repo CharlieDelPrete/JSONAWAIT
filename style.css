@@ -1,0 +1,21 @@
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.card {
+  transition: 0.2s ease;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.period-badge {
+  font-size: 0.85rem;
+}
