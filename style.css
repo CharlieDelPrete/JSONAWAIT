@@ -1,21 +1,130 @@
+/* General Body Styles */
 body {
-  font-family: "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #0d47a1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Description Paragraph */
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Dropdown Styling */
+#scheduleSelect {
+    max-width: 300px;
+    margin: 0 auto 30px auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid #0d47a1;
+    padding: 8px 12px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#scheduleSelect:hover {
+    border-color: #1565c0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Status Messages */
+#status .alert {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Schedule Cards */
 .card {
-  transition: 0.2s ease;
-  border-radius: 12px;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    background: linear-gradient(145deg, #ffffff, #e3f2fd);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card:hover {
-  transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
 }
 
 .card-title {
-  font-weight: 700;
-  font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0d47a1;
+    margin-bottom: 10px;
 }
 
-.period-badge {
-  font-size: 0.85rem;
+/* Class Details */
+.card-body p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* General Body Styles */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 
+2.5rem;
 }

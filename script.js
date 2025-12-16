@@ -1,61 +1,42 @@
-// JSON file names
-const mySchedule = "KingSchedule.json";
-const friends = ["AvaSchedule.json", "JoshSchedule.json", "MiaSchedule.json"];
+const container = document.getElementById('scheduleContainer');
+const status = document.getElementById('status');
+const scheduleSelect = document.getElementById('scheduleSelect');
 
-// DOM elements
-const select = document.getElementById("scheduleSelect");
-const container = document.getElementById("scheduleContainer");
-const status = document.getElementById("status");
-
-// AUTOLOAD King’s schedule on page open
-window.addEventListener("DOMContentLoaded", () => {
-  loadSchedule(mySchedule);
-});
-
-// EVENT TRIGGER — when dropdown changes (NOT a button)
-select.addEventListener("change", () => {
-  loadSchedule(select.value);
-});
-
-// ASYNC FUNCTION TO LOAD JSON SCHEDULES
 async function loadSchedule(fileName) {
-  status.innerHTML = `<div class="alert alert-info">Loading schedule...</div>`;
-  container.innerHTML = "";
+    container.innerHTML = "";
+    status.innerHTML = `<div class="alert alert-info">Loading schedule...</div>`;
 
-  try {
-    // Fetch the JSON using template literal
-    const response = await fetch(`./json/${fileName}`);
+    try {
+        const response = await fetch(`${fileName}`);
+        if (!response.ok) throw new Error('Failed to load schedule');
+        const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error("Failed to load JSON file.");
+        data.sort((a, b) => a.period - b.period);
+
+        status.innerHTML = ""; 
+
+        data.forEach(cls => {
+            const html = `
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${cls.className}</h5>
+                        <p>Teacher: ${cls.teacher}</p>
+                        <p>Room: ${cls.roomNumber}</p>
+                        <p>Period: ${cls.period}</p>
+                        <p>Subject: ${cls.subjectArea}</p>
+                    </div>
+                </div>
+            </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        });
+    } catch (error) {
+        status.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
     }
-
-    const data = await response.json();
-
-    // Sort by period (extra credit!)
-    data.sort((a, b) => a.period - b.period);
-
-    // Build cards
-    data.forEach((cls) => {
-      const html = `
-        <div class="col-md-4">
-          <div class="card shadow-sm p-3">
-            <h5 class="card-title">${cls.className}</h5>
-            <p><strong>Teacher:</strong> ${cls.teacher}</p>
-            <p><strong>Room:</strong> ${cls.roomNumber}</p>
-            <span class="badge bg-primary period-badge">Period ${cls.period}</span>
-            <p class="mt-2 text-muted">${cls.subjectArea}</p>
-          </div>
-        </div>
-      `;
-      container.insertAdjacentHTML("beforeend", html);
-    });
-
-    status.innerHTML = "";
-  } catch (error) {
-    status.innerHTML = `
-      <div class="alert alert-danger">
-        ❌ Error loading schedule. Check file name or JSON format.
-      </div>`;
-  }
 }
+
+loadSchedule(scheduleSelect.value);
+
+scheduleSelect.addEventListener('change', () => {
+    loadSchedule(scheduleSelect.value);
+});

@@ -1,0 +1,9 @@
+[
+  {"className":"AP Statistics","teacher":"Patterson, David","roomNumber":"D201","period":1,"subjectArea":"Math"},
+  {"className":"Study Hall","teacher":"Hipsley, Anthony","roomNumber":"MED1","period":2,"subjectArea":"Elective"},
+  {"className":"Honors NJIT IS219 Advanced Website Development W","teacher":"Herbert, Megan","roomNumber":"B114","period":3,"subjectArea":"Computer Science"},
+  {"className":"AP English Lit & Comp","teacher":"Hipsley, Anthony","roomNumber":"E105","period":4,"subjectArea":"English"},
+  {"className":"Leadership in Action","teacher":"Dohan, Alexander","roomNumber":"G106","period":5,"subjectArea":"Elective"},
+  {"className":"Public Speaking","teacher":"Robbins, Givanna","roomNumber":"C120","period":6,"subjectArea":"Elective"},
+  {"className":"Marketing 1","teacher":"Murray, Carrie","roomNumber":"D109","period":7,"subjectArea":"Business"}
+]
